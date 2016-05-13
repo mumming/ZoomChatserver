@@ -14,13 +14,14 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PUT;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
+import control.Controller;
 
 /**
  * REST Web Service
  *
  * @author Martin
  */
-@Path("postmessage/{varX}")
+@Path("postmessage/{varX}{varY}")
 public class PostmessageResource {
 
     @Context
@@ -49,7 +50,8 @@ public class PostmessageResource {
      */
     @PUT
     @Consumes(MediaType.TEXT_PLAIN)
-    public void putText(String message) {
-        
+    public void putText(String username, String message) {
+        control.Controller.messages.add(username);
+        control.Controller.messages.add(message);
     }
 }

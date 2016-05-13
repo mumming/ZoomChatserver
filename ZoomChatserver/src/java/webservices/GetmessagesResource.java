@@ -13,6 +13,8 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PUT;
 import javax.ws.rs.core.MediaType;
+import control.Controller;
+import java.util.StringJoiner;
 
 /**
  * REST Web Service
@@ -36,10 +38,15 @@ public class GetmessagesResource {
      * @return an instance of java.lang.String
      */
     @GET
-    @Produces(MediaType.APPLICATION_XML)
-    public String getXml() {
-        //TODO return proper representation object
-        throw new UnsupportedOperationException();
+    @Produces(MediaType.TEXT_PLAIN)
+    public String getMessages() {
+        String joined = "";
+        for(int i = 0; i < control.Controller.messages.size(); i++){
+            if(i%2==0)
+                joined.concat("\n");
+            joined.concat(control.Controller.messages.get(i));
+        }
+        return joined;
     }
 
     /**

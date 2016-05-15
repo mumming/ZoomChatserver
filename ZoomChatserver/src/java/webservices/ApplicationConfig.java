@@ -30,8 +30,8 @@ public class ApplicationConfig extends Application {
      */
     private void addRestResourceClasses(Set<Class<?>> resources) {
         resources.add(webservices.AdminloginResource.class);
-        resources.add(webservices.GetmessagesResource.class);
-        resources.add(webservices.PostmessageResource.class);
+        resources.add(webservices.Messages.class);
+        resources.add(webservices.SelectusernameResource.class);
     }
     
 }
